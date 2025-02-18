@@ -17,27 +17,29 @@ var ghostsScared = false;
 var gameOver = false;
 
 // read in a file based on what the user provides.
-document.getElementById("fileinput").addEventListener("change", event => {
-    playedVictorySound = false;
-    showPath = false;
-    gameOver = false;
-    ghostsScared = false;
-    pacman.lives = 2;
-    playerScore = 0;
-    var f = event.target.files[0];
-    var reader = new FileReader();
-    reader.onload = function(e){
-        // content is a string containing the contents of the file.
-        var content = e.target.result;  
-        level = new Level(content);
+function loadDefaultLevel() {
+    fetch("res/levels/level1.txt")  // Ruta del nivel predeterminado
+    .then(response => response.text()) // Leer el contenido como texto
+    .then(content => {
+        playedVictorySound = false;
+        showPath = false;
+        gameOver = false;
+        ghostsScared = false;
+        pacman.lives = 2;
+        playerScore = 0;
+
+        level = new Level(content);  // Cargar el nivel
         level.build();
         tileSize = level.tileSize;
-        const sound = new Audio("res/sounds/pacman_beginning.wav");
-        sound.play();
 
-    }
-    reader.readAsText(f);
-}, false);
+        const sound = new Audio("res/sounds/beginning.wav");
+        sound.play();
+    })
+    .catch(error => console.error("Error al cargar el nivel:", error));
+}
+
+// Llamamos automáticamente a la función al cargar la página
+window.onload = loadDefaultLevel;
 
 
 
