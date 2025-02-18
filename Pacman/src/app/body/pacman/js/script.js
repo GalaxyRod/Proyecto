@@ -32,7 +32,7 @@ document.getElementById("fileinput").addEventListener("change", event => {
         level = new Level(content);
         level.build();
         tileSize = level.tileSize;
-        const sound = new Audio("res/sounds/beginning.wav");
+        const sound = new Audio("res/sounds/pacman_beginning.wav");
         sound.play();
 
     }
