@@ -4,10 +4,6 @@ body {
   margin: 0;
 }
 
-#mainDiv {
-  align-content: center;
-}
-
 .cover-container {
   max-width: 42em;
 }
