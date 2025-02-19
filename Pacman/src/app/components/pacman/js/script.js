@@ -7,6 +7,7 @@ document.addEventListener("keydown", function(event){
 }, false); 
 
 // keep track of "score", meaningless value to display during and at the end of the game.
+const API_KEY = "PUmNhKhWfkeJ4X4HJnVJ_AH0Rmo36edkSaLJ1Bah7DWA";
 var playerScore = 0;
 var level;
 var graph;
@@ -15,6 +16,11 @@ var time = 0;
 var showPath = false;
 var ghostsScared = false;
 var gameOver = false;
+var playerName = prompt("Ingresa tu nombre para comenzar el juego:");
+if (!playerName) {
+    playerName = "Jugador"; // Nombre por defecto si el usuario no ingresa nada
+}
+console.log("Bienvenido, " + playerName + "! El juego comenzará en breve.");
 
 // read in a file based on what the user provides.
 function loadDefaultLevel() {
@@ -778,6 +784,11 @@ function start(){
         ctx.fillStyle = "red";
         ctx.fillText("Game Over", canvas.width / 2 ,canvas.height / 2);
         ctx.fillText("Score: " + playerScore, canvas.width / 2, canvas.height / 2 - 100);
+        let url = `http://dreamlo.com/lb/${API_KEY}/add/${encodeURIComponent(playerName)}/${playerScore}`;
+        fetch(url)
+            .then(response => response.text())
+            .then(data => console.log("Puntaje enviado con éxito"))
+            .catch(error => console.error("Error al enviar puntaje:", error));
     }
 
     window.requestAnimationFrame(start);
