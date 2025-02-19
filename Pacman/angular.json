@@ -28,12 +28,11 @@
               }
             ],
             "styles": [
-              "src/app/body/pacman/css/style.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": [
-              "src/app/body/pacman/js/script.js",
+              "src/app/components/pacman/js/script.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
             "server": "src/main.server.ts",

@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MenuComponent } from './head/menu/menu.component';
-import { PacmanComponent } from './body/pacman/pacman.component';
+import {
+  HeaderComponent,
+  FooterComponent
+} from './components/index.components';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,MenuComponent,PacmanComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
