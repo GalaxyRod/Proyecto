@@ -1,0 +1,30 @@
+@if (!gameOver()) {
+    <div>
+      <h2>Type the word:</h2>
+      <p class="word-display">
+        @for (char of displayedWord(); track $index) {
+          <span [class.typed]="!char.underlined">{{ char.letter }}</span>
+        }
+      </p>
+      <input
+        type="text"
+        [value]="userInput()"
+        (input)="onInput($event)"
+        [disabled]="gameOver()"
+      />
+      <p>Attempts left: {{ attempts() }}</p>
+      <p>Wins: {{ wins() }}</p>
+    </div>
+  }
+
+  @if (gameOver()) {
+    <div>
+      @if (gameWon()) {
+        <h2>Congratulations! You won!</h2>
+      }
+      @if (!gameWon()) {
+        <h2>Game Over! You lost!</h2>
+      }
+      <button (click)="resetGame()">Play Again</button>
+    </div>
+  }
