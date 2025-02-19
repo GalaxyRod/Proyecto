@@ -1,0 +1,3 @@
+[submodule "proMiniG"]
+	path = proMiniG
+	url = https://github.com/HugSTapG/proMiniG.git
