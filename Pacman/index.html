@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pacman Vite + TS</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Pacman Game</h1>
+      <canvas id="canvas" width="900" height="900"></canvas>
+      <div class="controls">
+        <div class="control-group">
+          <button id="arrow-controls" class="control-btn selected">Arrow Keys</button>
+          <button id="wasd-controls" class="control-btn">WASD</button>
+        </div>
+        <div class="control-group">
+          <button id="sound-on" class="control-btn">Sound On</button>
+          <button id="sound-off" class="control-btn selected">Sound Off</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
