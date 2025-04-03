@@ -1,0 +1,31 @@
+# Node.js dependencies
+**/node_modules/
+
+# Build output
+/dist
+/build
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE and editor folders (Visual Studio Code, JetBrains, etc.)
+.vscode/
+.idea/
+
+# System files (Windows)
+Thumbs.db
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*.bak
+
+# Environment files
+.env
+.env.local
+.env.*.local

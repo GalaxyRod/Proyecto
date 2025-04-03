@@ -2,18 +2,24 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Words', {
+    await queryInterface.createTable('games', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      word: {
-        type: Sequelize.STRING
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      category: {
-        type: Sequelize.STRING
+      description: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
+      imageUrl: {
+        type: Sequelize.STRING,
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
@@ -26,8 +32,11 @@ module.exports = {
         defaultValue: Sequelize.NOW
       }
     });
+    await queryInterface.addIndex('games', ['name'], {
+      name: 'idx_game_name'
+    });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Words');
+    await queryInterface.dropTable('games');
   }
 };

@@ -2,18 +2,17 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Words', {
+    await queryInterface.createTable('genres', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      word: {
-        type: Sequelize.STRING
-      },
-      category: {
-        type: Sequelize.STRING
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
       },
       createdAt: {
         allowNull: false,
@@ -26,8 +25,11 @@ module.exports = {
         defaultValue: Sequelize.NOW
       }
     });
+    await queryInterface.addIndex('genres', ['name'], {
+      name: 'idx_genre_name'
+    });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Words');
+    await queryInterface.dropTable('genres');
   }
 };
